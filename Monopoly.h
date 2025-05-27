@@ -1,6 +1,8 @@
 #pragma once
 #include "Player.h"
 #include "Board.h"
+#include "Départ.h"
+#include "Cases.h"
 #include <string>
 #include <iostream>
 #include <vector>
