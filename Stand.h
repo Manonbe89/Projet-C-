@@ -1,7 +1,8 @@
 #pragma once
 #include "Cases.h"
+#include "Player.h"
 
-class Stand : public Case
+class Stand : public Cases
 {
 private:
 	std::string name;

@@ -15,5 +15,7 @@ public:
 	void getName();
 	void getPosition();
 	void getMoney();
+	void setMoney(int sum);
+	void addMoney(int sum);
 };
 

@@ -3,13 +3,13 @@
 void Stand::do_case(std::vector<Player> players, uint8_t current)
 {
 	if (with_2Stands == true) {
-		money -= 2 * price;
+		players[current].addMoney(-2);		//Appelle le jouer actuel dans le tableau de joueurs 
 	}
 	else if (with_Stand == true) {
-		money -= price;
+		players[current].addMoney(-price);
 	}
 	else
-		money -= house_price;
+		players[current].addMoney(-house_price);
 
 }
 

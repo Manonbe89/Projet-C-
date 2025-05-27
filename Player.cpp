@@ -21,3 +21,12 @@ void Player::getMoney()
 {
 	std::cout << "money :" << money;
 }
+
+void Player::setMoney(int sum)
+{
+	money = sum;
+}
+
+void Player::addMoney(int sum) {
+	money += sum;
+}
