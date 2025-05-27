@@ -10,12 +10,10 @@ private:
 	int money;
 	std::vector<Stand> stand;
 
-public: 
+public:
 	Player(std::string name);
 	void getName();
 	void getPosition();
 	void getMoney();
-
-	
 };
 
