@@ -7,6 +7,6 @@ private :
 
 public : 
 	void play_turn();
-	void move_player(Player, int number_of_cases);
+	void move_player(Player player, int number_of_cases);
 };
 

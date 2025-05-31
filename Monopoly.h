@@ -17,4 +17,5 @@ public:
 	void start();
 	void next_player();
 	bool check_end();
+	int dice_roll();
 };
