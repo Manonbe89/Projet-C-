@@ -1,8 +1,10 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "Stand.h"
 #include <iostream>
+
+class Stand; 
+
 class Player
 {
 private:
@@ -10,19 +12,15 @@ private:
 	uint8_t position;
 	int money;
 	int nb_stands = 0;
-	std::vector<Stand> stand;
+	std::vector<Stand*> stand;
 
 public:
-	Player(std::string name);
-
+	Player(std::string name, int money, int nb_stands);
 	std::string getName();
-	void setName(std::string name_player); 
 	int getPosition();
 	void setPosition(int coordonnées);
 	int getMoney();
-	void setMoney(int sum);
 	void addMoney(int sum);
-	void setNb_Stands(int nb);
-	void displayStand(const std::vector<Stand> stand);
+	void displayStand(const std::vector<Stand*> stand);
 };
 

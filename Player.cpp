@@ -1,19 +1,14 @@
 #include "Player.h"
 
 
-Player::Player(std::string name)
-	:name(name)
+Player::Player(std::string name, int sum, int nb_stands)
+	:name(name), money(money), nb_stands(nb_stands)
 {
 }
 
 std::string Player::getName()
 {
 	return name;
-}
-
-void Player::setName(std::string name_player)
-{
-	name = name_player;
 }
 
 int Player::getPosition()
@@ -34,23 +29,13 @@ void Player::displayStand(const std::vector<Stand> stand)
 	else {
 		std::cout << "You have " << nb_stands << " stands";
 		for (int i = 0; i < nb_stands; i++) {
-			std::cout << stand[i].name;
+			//std::cout << stand[i].name;
 		}
 	}
 }
 
-void Player::setMoney(int sum)
-{
-	money = sum;
-}
-
 void Player::addMoney(int sum) {
 	money += sum;
-}
-
-void Player::setNb_Stands(int nb)
-{
-	nb_stands = nb;
 }
 
 void Player::setPosition(int coordonnées)

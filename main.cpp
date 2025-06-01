@@ -7,10 +7,12 @@ int main(void) {
 	std::cin >> nb_players;
 
 	std::cout << "What are your names ?";
-	for (int i = 0; i < nb_players; i++) {
-		std::string name;
-		std::cin >> name;
-		Player player[i];
-		player[i].setName(name);
-	}
+	//if (nb_players == 2) {
+		//for (int i = 0; i < nb_players; i++) {
+			std::string name;
+			std::cin >> name;
+			Player player1(name, 31, 15);
+		//}
+	//}
+			player1.getMoney();
 }

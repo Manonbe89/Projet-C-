@@ -1,12 +1,13 @@
 #pragma once
 #include "Cases.h"
-#include "Player.h"
+
+class Player;
 
 class Stand : public Cases
 {
 private:
 	std::string name;
-	std::string color = '\0';
+	std::string color = "";
 	unsigned int price;
 	unsigned int house_price;
 	bool with_Stand;
@@ -16,4 +17,3 @@ public:
 	void do_case(std::vector<Player> players, uint8_t current) override;
 	void determine_price();
 };
-

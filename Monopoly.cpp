@@ -1,5 +1,4 @@
 #include "Monopoly.h"
-#include <random>
 bool Monopoly::check_end()
 {
 	bool test_fin = false;
@@ -29,6 +28,6 @@ void Monopoly::start()
 
 int Monopoly::dice_roll()
 {
-	int valeur = rand()% 6 + 1;
+	int valeur = rand() % 6 + 1;
 	return valeur;
 }

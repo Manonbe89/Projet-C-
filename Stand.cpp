@@ -10,7 +10,6 @@ void Stand::do_case(std::vector<Player> players, uint8_t current)
 	}
 	else
 		players[current].addMoney(-house_price);
-
 }
 
 void Stand::determine_price() {

@@ -1,11 +1,14 @@
 #pragma once
-#include "Player.h"
 #include "Board.h"
-#include "Départ.h"
-#include "Cases.h"
+#include "Player.h"
+#include <cstdint>
 #include <string>
 #include <iostream>
 #include <vector>
+#include <random>
+
+class Cases;
+
 class Monopoly
 {
 private:
