@@ -7,13 +7,12 @@
 #include <vector>
 #include <random>
 
-class Cases;
 
 class Monopoly
 {
 private:
 	std::vector<Player> players;
-	Board board;
+	//Board* b = nullptr;
 	unsigned short turn;
 	std::vector<int> chance_deck;
 public:

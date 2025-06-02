@@ -28,3 +28,17 @@ void Stand::determine_price() {
 	else
 		price = 5;
 }
+
+void Stand::displayStand(const std::vector<Stand*> stand)
+{
+	size_t nb_stands = stand.size();
+	if (nb_stands == 0) {
+		std::cout << "You don't have a stand yet." << std::endl;
+	}
+	else {
+		std::cout << "You have " << nb_stands << " stands";
+		for (int i = 0; i < nb_stands; i++) {
+			//std::cout << stand[i].name;
+		}
+	}
+}
