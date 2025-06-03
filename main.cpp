@@ -1,5 +1,5 @@
-#include "Player.h"
-#include "Monopoly.h"
+#include "core/Player.h"
+#include "core/Monopoly.h"
 
 int main(void) {
 	std::cout << "Start of the game" << std::endl;

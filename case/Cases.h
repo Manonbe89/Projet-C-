@@ -1,6 +1,6 @@
 #pragma once
-#include "Monopoly.h"
-#include "Player.h"
+#include "../core/Monopoly.h"
+#include "../core/Player.h"
 
 
 class Cases

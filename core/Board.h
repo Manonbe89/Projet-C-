@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "Cases.h"
+#include "../case/Cases.h"
 #include "Player.h"
 
 class Board
