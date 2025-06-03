@@ -1,0 +1,11 @@
+﻿  Depart.cpp
+  Départ.cpp
+  Feu_d_artifice_dauphins.cpp
+  Stand.cpp
+  Train.cpp
+  Board.cpp
+  Monopoly.cpp
+  main.cpp
+  Génération de code en cours...
+C:\Users\md042781\Documents\monopoly\core\Monopoly.cpp(18,1): warning C4715: 'Monopoly::check_end' : les chemins de contrôle ne retournent pas tous une valeur
+  monopoly.vcxproj -> C:\Users\md042781\Documents\monopoly\x64\Debug\monopoly.exe
