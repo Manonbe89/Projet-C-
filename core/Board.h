@@ -1,13 +1,10 @@
 #pragma once
 #include <vector>
-#include "../case/Cases.h"
+#include "Cases.h"
 #include "Player.h"
 
 class Board
 {
-private:
-	std::vector<int> cases;
-
 public:
 	Board();
 	void play_turn();
