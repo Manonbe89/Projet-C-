@@ -55,6 +55,28 @@ void CaseProperty::execute(GameState& gs) {
 		return;
 	}
 
+	auto& fstands = player->get_free_stands();
+
+	for (auto it = fstands.begin(); it != fstands.end();)
+	{
+		if (*it == color) {
+			std::cout << "Do you want to buy this property for free using a free stand? (y/n): ";
+			std::string choice;
+			std::getline(std::cin, choice);
+			if (choice == "y" || choice == "Y") {
+				owner = player;
+				player->add_property(this);
+				it = fstands.erase(it);
+				std::cout << name << " bought the property: " << get_name() << ".\n";
+			}
+
+			break;
+		}
+		else {
+			++it;
+		}
+	}
+
 
 
 	if (!player->get_nb_stands()) {

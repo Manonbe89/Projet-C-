@@ -16,6 +16,7 @@ private:
 	int16_t money;
 	uint8_t nb_stands;
 	std::vector<CaseProperty*> properties;
+	std::vector<Color> free_stand;
 
 public:
 	Player(const std::string& name, uint8_t nb_stands, int16_t money = 31)
@@ -35,4 +36,7 @@ public:
 
 	uint8_t get_nb_stands() const { return nb_stands; }
 	void decrement_nb_stands() { if (nb_stands > 0) nb_stands--; }
+
+	void add_free_stand(Color color) { free_stand.push_back(color);}
+	auto& get_free_stands() { return free_stand; }
 };

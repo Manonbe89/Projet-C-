@@ -6,7 +6,8 @@
 
 void CardFreeStand::execute(GameState& gs) {
 	auto* const player = gs.get_player();
-	// TODO: Implement logic to give the player a free stand of the specified color
+	player->add_free_stand(color);
+	std::cout << "Player " << player->get_name() << " got a free " << color_to_string(color) << " stand.\n";
 }
 
 void CardGoTo::execute(GameState& gs) {
