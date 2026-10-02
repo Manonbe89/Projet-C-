@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "case/Depart.h"
+#include "../case/Depart.h"
 
 
 Player::Player(std::string name, int money, int nb_stands, int de)

@@ -1,5 +1,6 @@
 #include "Monopoly.h"
 #include "Board.h"
+#include "../Interraction.h"
 
 Monopoly::Monopoly(std::vector<Player> players)
 	:FirstPlayerToPlay(FirstPlayerToPlay)
@@ -9,7 +10,8 @@ Monopoly::Monopoly(std::vector<Player> players)
 bool Monopoly::check_end(std::vector<Player>& players, int current)
 {
 	bool result;
-	if (players[current].getMoney() == 0 || players[current].getMoney() < 0) {
+	Interraction interraction;
+	if (players[current].getMoney() == 0 || players[current].getMoney() < 0 || interraction.waitForEscape() == 0) {
 		std::cout << "La partie est terminee" << std::endl << "Le joueur " << players[current].getName() << " a perdu tout son argent" << std::endl;
 		result = 0;
 	}

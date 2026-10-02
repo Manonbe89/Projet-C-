@@ -2,7 +2,8 @@
 
 void Train::do_case(std::vector<Player>& players, uint8_t current)
 {
-	//players[current].die_roll();
+	Monopoly monopoly(players);
+	monopoly.dice_roll(players, current);
 }
 
 std::string Train::getName() {

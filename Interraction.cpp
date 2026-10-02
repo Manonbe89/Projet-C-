@@ -6,9 +6,18 @@
 void Interraction::waitForSpace() {
     std::cout << "Appuyez sur ESPACE pour continuer..." << std::endl;
     while (true) {
-        char key = _getch(); // lit une touche sans attendre Entrée
+        char key = _getch(); // lit une touche sans attendre Entrï¿½e
         if (key == ' ') {
-            break; // touche espace détectée
+            break; // touche espace dï¿½tectï¿½e
+        }
+    }
+}
+
+bool Interraction::waitForEscape() {
+    while (true) {
+        int key = _getch(); // lit une touche sans attendre Entrï¿½e
+        if (key == 27) {
+            return 0; 
         }
     }
 }
