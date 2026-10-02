@@ -15,7 +15,6 @@ private:
 
 public:
 	Stand(const std::string& name, const std::string& color, int price, int house_price);
-	void do_case(std::vector<Player> players, uint8_t current) override;
-	void displayStand(const std::vector<Stand*> stand);
-	bool getWith_Stand();
+	void do_case(std::vector<Player>& players, uint8_t current) override;
+	std::string getName() override;
 };

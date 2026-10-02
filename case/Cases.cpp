@@ -8,7 +8,7 @@
 #include "Fortune.h"
 #include "Bus.h"
 
-void Cases::defCases(std::vector<std::unique_ptr<Cases>> cases)
+void Cases::defCases(std::vector<std::unique_ptr<Cases>>& cases)
 {
 	cases.push_back(std::make_unique<Depart>());				//permet d'éviter fuites memoires et creer une instance d'une classe virtuelle
 	cases.push_back(std::make_unique<Chance>());

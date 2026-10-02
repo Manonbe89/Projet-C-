@@ -1,23 +1,34 @@
 #pragma once
-#include "Board.h"
-#include "Player.h"
-#include <cstdint>
-#include <string>
 #include <iostream>
-#include <vector>
-#include <random>
+#include <cstdint>
+#include <ctime>
+#include "Player.h"
 
+#ifndef MONOPOLY_H
+#define MONOPOLY_H
+
+class Board;
 
 class Monopoly
 {
 private:
-	std::vector<Player> players;
-	//Board* b = nullptr;
-	unsigned short turn;
+	uint8_t current = 0;
 	std::vector<int> chance_deck;
+	std::string winner = "";
+	std::string winner_de = "";
+	std::string FirstPlayerToPlay;
+	int numberFirstPlayer = 0;
+
 public:
-	void start();
-	void next_player();
-	bool check_end();
-	int dice_roll();
+	Monopoly(std::vector<Player> players);
+	void start(std::vector<Player>& players, Monopoly& monopoly);
+	bool check_end(std::vector<Player>& players, int current);
+	int dice_roll(const std::vector<Player> &players, int current);	//evite de copier tt le vecteur a chaque appel
+	void setNameCurrentPlayer(std::string winner_de);
+	std::string getNameCurrentPlayer();
+	void setNumberCurrentPlayer(int number);
+	int getNumberCurrentPlayer();
+	void displayInfos(std::vector<Player> players, int current);
 };
+
+#endif
