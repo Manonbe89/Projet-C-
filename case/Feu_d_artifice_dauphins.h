@@ -1,5 +1,5 @@
 #pragma once
-#include "Cases.h"
+#include "../Cases.h"
 class Feu_d_artifice_dauphins : public Cases
 {
 public:

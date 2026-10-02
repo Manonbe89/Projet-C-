@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "Depart.h"
+#include "case/Depart.h"
 
 
 Player::Player(std::string name, int money, int nb_stands, int de)
@@ -36,15 +36,15 @@ int Player::getDe()
 	return player_de;
 }
 
-void Player::addPosition(int coordonnées, std::vector<Player>& players, int current)
+void Player::addPosition(int coordonnï¿½es, std::vector<Player>& players, int current)
 {
-	if (players[current].getPosition() + coordonnées > 32) {
-		current_case = players[current].getPosition() + coordonnées - 32;
+	if (players[current].getPosition() + coordonnï¿½es > 32) {
+		current_case = players[current].getPosition() + coordonnï¿½es - 32;
 	}
 	else
-		current_case += coordonnées;
+		current_case += coordonnï¿½es;
 
-	if (players[current].getPosition() <= 0 && (players[current].getPosition() + coordonnées) > 0) {
+	if (players[current].getPosition() <= 0 && (players[current].getPosition() + coordonnï¿½es) > 0) {
 		Depart depart;
 		depart.do_case(players, current);
 	}

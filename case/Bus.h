@@ -1,5 +1,5 @@
 #pragma once
-#include "Cases.h"
+#include "../Cases.h"
 #include "Fortune.h"
 
 #ifndef BUS_H
