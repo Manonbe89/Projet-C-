@@ -1,23 +1,24 @@
+#include <vector>
 #include "Player.h"
 #include "Monopoly.h"
+#include "Cases.h"
+#include "Board.h"
 
 int main(void) {
-	std::cout << "Start of the game" << std::endl;
-	std::cout << "How many players are you ?" << std::endl;
-	int nb_players;
-	std::cin >> nb_players;
+	std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-	std::vector<Player> player;
-	std::cout << "What are your names ?" << std::endl;
-	for (int i = 0; i < nb_players; i++) {
-		std::string name;
-		std::cin >> name;
-		if (nb_players == 2) {
-			player.emplace_back(name, 31, 15);
-		}
-		else {
-			player.emplace_back(name, 31, 10);
-		}
-		
+	//Initialisation 
+	std::vector <Player> players;
+	Monopoly monopoly(players);
+	std::vector<std::unique_ptr<Cases>> cases;
+	Board board(cases);
+
+	//Déroulement du jeu
+	monopoly.start(players, monopoly);
+	std::cout << "Debut du jeu" << std::endl << std::endl;
+	Cases::defCases(cases);											//car méthode static donc appel différent
+	while (monopoly.check_end(players, monopoly.getNumberCurrentPlayer()) != 0) {
+		board.play_turn(monopoly, players);
 	}
+	std::cout << "Fin du jeu" << std::endl;
 }

@@ -1,19 +1,20 @@
 #include "Player.h"
+#include "Depart.h"
 
 
-Player::Player(std::string name, int money, int nb_stands)
-	:name(name), money(money), nb_stands(nb_stands), position(0)
+Player::Player(std::string name, int money, int nb_stands, int de)
+	:name(name), money(money), nb_stands(nb_stands), current_case(0), player_de(0)
 {
 }
 
-std::string Player::getName()
+std::string Player::getName() const
 {
 	return name;
 }
 
 int Player::getPosition()
 {
-	return position;
+	return current_case;
 }
 
 int Player::getMoney()
@@ -25,7 +26,26 @@ void Player::addMoney(int sum) {
 	money += sum;
 }
 
-void Player::addPosition(int coordonnées)
+void Player::setDe(int de)
 {
-	position += coordonnées;
+	player_de = de;
+}
+
+int Player::getDe()
+{
+	return player_de;
+}
+
+void Player::addPosition(int coordonnées, std::vector<Player>& players, int current)
+{
+	if (players[current].getPosition() + coordonnées > 32) {
+		current_case = players[current].getPosition() + coordonnées - 32;
+	}
+	else
+		current_case += coordonnées;
+
+	if (players[current].getPosition() <= 0 && (players[current].getPosition() + coordonnées) > 0) {
+		Depart depart;
+		depart.do_case(players, current);
+	}
 }
