@@ -11,7 +11,7 @@
 class Cases
 {
 private :           
-	uint8_t current = 0;
+	int current = 0;
 
 public:
 	virtual void do_case(std::vector<Player>& players, uint8_t current) = 0;

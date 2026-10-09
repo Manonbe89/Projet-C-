@@ -17,7 +17,9 @@ int main(void) {
 	monopoly.start(players, monopoly);
 	std::cout << "Debut du jeu" << std::endl << std::endl;
 	Cases::defCases(cases);											//car methode static donc appel different
+	std::cout << "ici1";
 	while (monopoly.check_end(players, monopoly.getNumberCurrentPlayer()) != 0) {
+		std::cout << "ici3";
 		board.play_turn(monopoly, players);
 	}
 	std::cout << "Fin du jeu" << std::endl;

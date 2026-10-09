@@ -12,7 +12,7 @@ class Board;
 class Monopoly
 {
 private:
-	uint8_t current = 0;
+	int current = 0;
 	std::vector<int> chance_deck;
 	std::string winner = "";
 	std::string winner_de = "";

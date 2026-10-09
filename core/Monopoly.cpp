@@ -11,12 +11,17 @@ bool Monopoly::check_end(std::vector<Player>& players, int current)
 {
 	bool result;
 	Interraction interraction;
-	if (players[current].getMoney() == 0 || players[current].getMoney() < 0 || interraction.waitForEscape() == 0) {
+	if (players[current].getMoney() <= 0) {
 		std::cout << "La partie est terminee" << std::endl << "Le joueur " << players[current].getName() << " a perdu tout son argent" << std::endl;
 		result = 0;
 	}
-	else
+	else if (interraction.waitForEscape() == 0){
+		std::cout << "Vous quittez la partie" << std::endl;
+		result = 0;
+	}
+	else {
 		result = 1;
+	}
 	return result;
 }
 

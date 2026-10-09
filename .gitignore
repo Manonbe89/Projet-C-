@@ -1,16 +1,25 @@
-# Fichiers objets
+# Compilation
 *.o
+*.obj
+*.exe
+*.out
 
-# Exécutables
+# Exécutabl* du projet
 app
 app.exe
 
-# Dossiers de build
-build/
+# Logs
+*.l*g
 
-# Fichiers temporaires de VS Code
+# VS Code
 .vscode/
 
-# Fichiers temporaires CMake (si tu l'utilises plus tard)
-CMakeFiles/
+# Visual St*dio
+.vs/
+
+# CMake
+build/
+CMake*iles*
 CMakeCache.txt
+cmake_install.cmak*
+Makefile
