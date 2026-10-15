@@ -10,13 +10,8 @@ Monopoly::Monopoly(std::vector<Player> players)
 bool Monopoly::check_end(std::vector<Player>& players, int current)
 {
 	bool result;
-	Interraction interraction;
 	if (players[current].getMoney() <= 0) {
 		std::cout << "La partie est terminee" << std::endl << "Le joueur " << players[current].getName() << " a perdu tout son argent" << std::endl;
-		result = 0;
-	}
-	else if (interraction.waitForEscape() == 0){
-		std::cout << "Vous quittez la partie" << std::endl;
 		result = 0;
 	}
 	else {
@@ -30,6 +25,7 @@ void Monopoly::start(std::vector<Player>& players, Monopoly &monopoly)
 {
 	//Initialisation des valeurs
 	int nb_players;
+	Interraction interraction;
 
 	std::cout << "Debut du jeu" << std::endl;
 
@@ -59,6 +55,7 @@ void Monopoly::start(std::vector<Player>& players, Monopoly &monopoly)
 	//Determiner qui commence
 	int de = 0;
 	std::cout << "Vous allez lancer les des pour determiner qui commence" << std::endl << std::endl;
+	interraction.waitForSpace();
 
 	for (int i = 0; i < players.size(); i++) {
 		players[i].setDe(monopoly.dice_roll(players, i));

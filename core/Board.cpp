@@ -14,7 +14,7 @@ void Board::play_turn(Monopoly &monopoly, std::vector <Player>& players)
 {;
 	Interraction interraction;
 	std::string current_player = monopoly.getNameCurrentPlayer();
-	int number_current_player = monopoly.getNumberCurrentPlayer();
+	int number_current_player = monopoly.getNumberCurrentPlayer(); 
 	std::cout << "Tour du joueur " << current_player << std::endl;
 	int de = monopoly.dice_roll(players, number_current_player);
 	

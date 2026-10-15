@@ -17,7 +17,9 @@ bool Interraction::waitForEscape() {
     while (true) {
         int key = _getch(); 
         if (key == 27) {
-            return 0; 
+            return 1;
         }
+        else 
+            return 0;
     }
 }

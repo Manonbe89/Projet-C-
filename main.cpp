@@ -3,6 +3,7 @@
 #include "core/Monopoly.h"
 #include "Cases.h"
 #include "core/Board.h"
+#include "Interraction.h"
 
 int main(void) {
 	std::srand(static_cast<unsigned int>(std::time(nullptr)));
@@ -12,15 +13,22 @@ int main(void) {
 	Monopoly monopoly(players);
 	std::vector<std::unique_ptr<Cases>> cases;
 	Board board(cases);
+	Interraction interraction;
 
 	//Deroulement du jeu
 	monopoly.start(players, monopoly);
 	std::cout << "Debut du jeu" << std::endl << std::endl;
-	Cases::defCases(cases);											//car methode static donc appel different
-	std::cout << "ici1";
+	Cases::defCases(cases);		
+	std::cout << "Appuyez sur ESPACE pour continuer..." << std::endl;									//car methode static donc appel different
+
 	while (monopoly.check_end(players, monopoly.getNumberCurrentPlayer()) != 0) {
-		std::cout << "ici3";
-		board.play_turn(monopoly, players);
+		if (interraction.waitForEscape()){
+			std::cout << "Vous quittez la partie" << std::endl;
+			break;
+		}
+		else {
+			board.play_turn(monopoly, players);
+		}
 	}
 	std::cout << "Fin du jeu" << std::endl;
 }
