@@ -36,15 +36,15 @@ int Player::getDe()
 	return player_de;
 }
 
-void Player::addPosition(int coordonn�es, std::vector<Player>& players, int current)
+void Player::addPosition(int coordonnees, std::vector<Player>& players, int current)
 {
-	if (players[current].getPosition() + coordonn�es > 32) {
-		current_case = players[current].getPosition() + coordonn�es - 32;
+	if (players[current].getPosition() + coordonnees > 32) {
+		current_case = players[current].getPosition() + coordonnees - 32;
 	}
 	else
-		current_case += coordonn�es;
+		current_case += coordonnees;
 
-	if (players[current].getPosition() <= 0 && (players[current].getPosition() + coordonn�es) > 0) {
+	if (players[current].getPosition() <= 0 && (players[current].getPosition() + coordonnees) > 0) {
 		Depart depart;
 		depart.do_case(players, current);
 	}
