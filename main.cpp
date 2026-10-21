@@ -18,7 +18,7 @@ int main(void) {
 	//Deroulement du jeu
 	monopoly.start(players, monopoly);
 	std::cout << "Debut du jeu" << std::endl << std::endl;
-	Cases::defCases(cases);		
+	Cases::defCases();		
 	std::cout << "Appuyez sur ESPACE pour continuer..." << std::endl;									//car methode static donc appel different
 
 	while (monopoly.check_end(players, monopoly.getNumberCurrentPlayer()) != 0) {

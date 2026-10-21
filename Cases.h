@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include <iostream>
 #include <memory>
 #include <vector>
@@ -18,6 +18,30 @@ public:
 	static void defCases(std::vector<std::unique_ptr<Cases>>& cases);		//comme classe virtuelle doit �tre static pour �tre utilisable
 	virtual std::string getName() = 0;
 	virtual ~Cases() = default; // Destruction via pointeur
+};
+
+#endif*/
+
+#include <iostream>
+#include <vector>
+
+#ifndef CASES_H
+#define CASES_H
+
+class Cases
+{
+	private : 
+		struct Case{
+			std::string name;
+			std::string color;
+			int price;
+			bool stand;
+		};
+
+	public :
+		std::vector<Case> cases;
+		void defCases();
+
 };
 
 #endif
