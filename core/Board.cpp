@@ -1,14 +1,8 @@
 #include "Board.h"
 #include "Monopoly.h"
 #include "Player.h"
-#include "../Cases.h"
 #include "../Interraction.h"
 
-
-Board::Board(std::vector<Cases>& cases)	
-	:number_current_player(0)
-{
-}
 
 void Board::play_turn(Monopoly &monopoly, std::vector <Player>& players, std::vector<Case>& cases, Cases plateau)
 {;
@@ -22,7 +16,7 @@ void Board::play_turn(Monopoly &monopoly, std::vector <Player>& players, std::ve
 	interraction.waitForSpace();
 	this->move_player(players, monopoly, de, number_current_player);							//this permet d'�viter de cr�er une instance de board (beaucoup plus simple)
 	std::cout << "Vous avez atterri sur la case " << plateau.getName(cases, players, monopoly) << std::endl;
-	cases[players[number_current_player].getPosition()].do_case(players, monopoly, number_current_player);
+	plateau.do_case(players, monopoly, number_current_player);
 	std::cout << "Fin de votre tour" << std::endl << std::endl;
 	interraction.waitForSpace();
 	this->SetNextPlayer(monopoly, players, number_current_player);

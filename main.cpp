@@ -6,14 +6,13 @@
 #include "Interraction.h"
 
 int main(void) {
-	std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-	//Initialisation 
+	//Initialisation
 	std::vector <Player> players;
 	Monopoly monopoly(players);
 	Cases plateau;
 	std::vector<Case> cases;
-	Board board(cases);
+	Board board;
 	Interraction interraction;
 
 	//Deroulement du jeu
