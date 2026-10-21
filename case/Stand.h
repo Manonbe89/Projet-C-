@@ -1,8 +1,6 @@
 #pragma once
 #include "../Cases.h"
 
-class Player;
-
 class Stand : public Cases
 {
 private:
@@ -15,6 +13,6 @@ private:
 
 public:
 	Stand(const std::string& name, const std::string& color, int price, int house_price);
-	void do_case(std::vector<Player>& players, Monopoly monopoly, uint8_t current) override;
+	void do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current) override;
 	std::string getName();
 };

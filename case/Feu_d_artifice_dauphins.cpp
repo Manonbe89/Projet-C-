@@ -1,6 +1,6 @@
 #include "Feu_d_artifice_dauphins.h"
 
-void Feu_d_artifice_dauphins::do_case(std::vector<Player>& players, Monopoly monopoly, uint8_t current)
+void Feu_d_artifice_dauphins::do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current)
 {
 	std::cout << "Vous perdez 2 euros" << std::endl;
 	players[current].addMoney(-2);

@@ -22,7 +22,9 @@ void Board::play_turn(Monopoly &monopoly, std::vector <Player>& players)
 	interraction.waitForSpace();
 	this->move_player(players, de, number_current_player);							//this permet d'�viter de cr�er une instance de board (beaucoup plus simple)
 	std::cout << "Vous avez atterri sur la case " << this->getNameCurrentCase(players, cases, number_current_player) << std::endl;
-	cases[players[number_current_player].getPosition()]->do_case(players, number_current_player);
+	std::cout << "A" << std::endl;
+	cases[players[number_current_player].getPosition()]->do_case(players, monopoly, number_current_player);
+	std::cout << "B" << std::endl;
 	std::cout << "Fin de votre tour" << std::endl << std::endl;
 	interraction.waitForSpace();
 	this->SetNextPlayer(monopoly, players, number_current_player);

@@ -14,7 +14,7 @@ private :
 	int current = 0;
 
 public:
-	virtual void do_case(std::vector<Player>& players, Monopoly monopoly, uint8_t current) = 0;
+	virtual void do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current) = 0;
 	static void defCases(std::vector<std::unique_ptr<Cases>>& cases);		//comme classe virtuelle doit �tre static pour �tre utilisable
 	virtual std::string getName() = 0;
 	virtual ~Cases() = default; // Destruction via pointeur

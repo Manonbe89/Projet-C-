@@ -6,7 +6,7 @@ Stand::Stand(const std::string& name, const std::string& color, int price, int h
 {
 }
 
-void Stand::do_case(std::vector<Player>& players, Monopoly monopoly, uint8_t current)
+void Stand::do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current)
 {
 	if (with_2Stands == true) {
 		std::cout << "Vous avez atterri sur une case contenant deja 2 stands" << std::endl;
