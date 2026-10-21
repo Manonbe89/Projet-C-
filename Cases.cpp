@@ -81,4 +81,10 @@ void Cases::defCases(){
 			{"Grand huit", "Bleu", 5, 0},
 			{"Montagnes russes", "Bleu", 5, 0},
 		};
-}
+};
+
+std::string Cases::getName(std::vector<Case>& cases, std::vector<Player>& players, Monopoly& monopoly)
+{
+	int nb_case = players[ monopoly.getNumberCurrentPlayer()].getPosition();
+    return cases[nb_case].name;
+};

@@ -6,8 +6,3 @@ void Train::do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t cu
 	monopoly.dice_roll(players, current);
 	std::cout << "apres_train" << std::endl;
 }
-
-std::string Train::getName() {
-	std::string name_case = "Train";
-	return name_case;
-}

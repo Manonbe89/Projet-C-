@@ -2,11 +2,11 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "Monopoly.h"
 
 #ifndef PLAYER_H
 #define PLAYER_H
 
-class Cases;
 class Player
 {
 private:
@@ -20,7 +20,7 @@ public:
 	Player(std::string name, int money, int nb_stands, int player_de);
 	std::string getName() const;
 	int getPosition();
-	void addPosition(int coordonnees, std::vector<Player>& players, int current);
+	void addPosition(int coordonnees, std::vector<Player>& players, Monopoly& monopoly, int current);
 	int getMoney();
 	void addMoney(int sum);
 	void setDe(int de);

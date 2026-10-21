@@ -22,11 +22,5 @@ void Stand::do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t cu
 		std::cout << "Vous avez atterri sur une case sans stand, vous achetez un stand" << std::endl;
 		std::cout << "Vous payez " << house_price << " euros" << std::endl;
 		players[current].addMoney(-house_price);*/
-
-}
-
-std::string Stand::getName()
-{
-	std::string name_case = "Stand";
-	return name_case;
+		std::cout << "stand" << std::endl;
 }

@@ -5,12 +5,12 @@
 #include "../Interraction.h"
 
 
-Board::Board(std::vector<Cases>& cases)	//I don't know
-	:number_current_player(0), cases(cases)
+Board::Board(std::vector<Cases>& cases)	
+	:number_current_player(0)
 {
 }
 
-void Board::play_turn(Monopoly &monopoly, std::vector <Player>& players)
+void Board::play_turn(Monopoly &monopoly, std::vector <Player>& players, std::vector<Case>& cases, Cases plateau)
 {;
 	Interraction interraction;
 	std::string current_player = monopoly.getNameCurrentPlayer();
@@ -20,20 +20,18 @@ void Board::play_turn(Monopoly &monopoly, std::vector <Player>& players)
 	
 	monopoly.displayInfos(players, number_current_player);
 	interraction.waitForSpace();
-	this->move_player(players, de, number_current_player);							//this permet d'�viter de cr�er une instance de board (beaucoup plus simple)
-	std::cout << "Vous avez atterri sur la case " << this->getNameCurrentCase(players, cases, number_current_player) << std::endl;
-	std::cout << "A" << std::endl;
-	cases[players[number_current_player].getPosition()]->do_case(players, monopoly, number_current_player);
-	std::cout << "B" << std::endl;
+	this->move_player(players, monopoly, de, number_current_player);							//this permet d'�viter de cr�er une instance de board (beaucoup plus simple)
+	std::cout << "Vous avez atterri sur la case " << plateau.getName(cases, players, monopoly) << std::endl;
+	cases[players[number_current_player].getPosition()].do_case(players, monopoly, number_current_player);
 	std::cout << "Fin de votre tour" << std::endl << std::endl;
 	interraction.waitForSpace();
 	this->SetNextPlayer(monopoly, players, number_current_player);
 }
 
-void Board::move_player(std::vector<Player>& players, int number_of_cases, int number_current_player)
+void Board::move_player(std::vector<Player>& players, Monopoly& monopoly, int number_of_cases, int number_current_player)
 {
 	std::cout << "Vous avancez de " << number_of_cases << " cases" << std::endl;
-	players[number_current_player].addPosition(number_of_cases, players, number_current_player);
+	players[number_current_player].addPosition(number_of_cases, players, monopoly, number_current_player);
 }
 
 void Board::SetNextPlayer(Monopoly& monopoly, std::vector<Player>& players,  int number_current_player)
@@ -46,14 +44,4 @@ void Board::SetNextPlayer(Monopoly& monopoly, std::vector<Player>& players,  int
 		monopoly.setNumberCurrentPlayer(number_current_player + 1);
 		monopoly.setNameCurrentPlayer(players[number_current_player + 1].getName());
 	}
-}
-
-std::string Board::getNameCurrentCase(std::vector<Player>& players, std::vector<Cases>& cases, int number_current_player)
-{
-	for (int i = 0; i < 32; i++) {
-		if (i == players[number_current_player].getPosition()) {
-			current_case = cases[i].getName();
-		}
-	}
-	return current_case;
 }

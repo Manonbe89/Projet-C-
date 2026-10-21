@@ -4,9 +4,3 @@ void Chance::do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t c
 {
 	std::cout << "Vous tirez une carte chance" << std::endl;
 }
-
-std::string Chance::getName()
-{
-	std::string name_case = "Chance";
-	return name_case;
-}

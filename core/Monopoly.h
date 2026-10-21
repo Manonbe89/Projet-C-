@@ -2,12 +2,12 @@
 #include <iostream>
 #include <cstdint>
 #include <ctime>
-#include "Player.h"
 
 #ifndef MONOPOLY_H
 #define MONOPOLY_H
 
 class Board;
+class Player;
 
 class Monopoly
 {

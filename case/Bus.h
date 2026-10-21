@@ -8,7 +8,6 @@ class Bus : public Cases
 {
 public:
 	virtual void do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current);
-	std::string getName() override;
 };
 
 #endif

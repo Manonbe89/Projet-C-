@@ -12,7 +12,7 @@ int main(void) {
 	std::vector <Player> players;
 	Monopoly monopoly(players);
 	Cases plateau;
-	std::vector<Cases> cases;
+	std::vector<Case> cases;
 	Board board(cases);
 	Interraction interraction;
 
@@ -20,7 +20,7 @@ int main(void) {
 	monopoly.start(players, monopoly);
 	std::cout << "Debut du jeu" << std::endl << std::endl;
 	plateau.defCases();		
-	std::cout << "Appuyez sur ESPACE pour continuer..." << std::endl;									//car methode static donc appel different
+	std::cout << "Appuyez sur ESPACE pour continuer..." << std::endl;									
 
 	while (monopoly.check_end(players, monopoly.getNumberCurrentPlayer()) != 0) {
 		if (interraction.waitForEscape()){
@@ -28,7 +28,7 @@ int main(void) {
 			break;
 		}
 		else {
-			board.play_turn(monopoly, players);
+			board.play_turn(monopoly, players, cases, plateau);
 		}
 	}
 	std::cout << "Fin du jeu" << std::endl;

@@ -36,7 +36,7 @@ int Player::getDe()
 	return player_de;
 }
 
-void Player::addPosition(int coordonnees, std::vector<Player>& players, int current)
+void Player::addPosition(int coordonnees, std::vector<Player>& players, Monopoly& monopoly, int current)
 {
 	if (players[current].getPosition() + coordonnees > 32) {
 		current_case = players[current].getPosition() + coordonnees - 32;
@@ -46,6 +46,6 @@ void Player::addPosition(int coordonnees, std::vector<Player>& players, int curr
 
 	if (players[current].getPosition() <= 0 && (players[current].getPosition() + coordonnees) > 0) {
 		Depart depart;
-		depart.do_case(players, current);
+		depart.do_case(players, monopoly, current);
 	}
 }

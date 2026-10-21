@@ -10,9 +10,3 @@ void Fortune::add_money_case(int money)
 {
 	money_case += money;
 }
-
-std::string Fortune::getName()
-{
-	std::string name_case = "Fortune";
-	return name_case;
-}

@@ -5,9 +5,3 @@ void Depart::do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t c
 	std::cout << "Vous recevez 2 euros" << std::endl;
 	players[current].addMoney(2);
 }
-
-std::string Depart::getName()
-{
-	std::string name_case = "Depart";
-	return name_case;
-}

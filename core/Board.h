@@ -18,9 +18,9 @@ private:
 	std::string current_case;
 
 public:
-	Board(std::vector<Cases> &cases);	//jsp trop pk mais sinon ca marche pas
-	void play_turn(Monopoly& monopoly, std::vector <Player>& players);
-	void move_player(std::vector<Player>& players, int number_of_cases, int number_current_player);
+	Board(std::vector<Cases> &cases);	
+	void play_turn(Monopoly &monopoly, std::vector <Player>& players, std::vector<Case>& cases, Cases plateau);
+	void move_player(std::vector<Player>& players, Monopoly& monopoly, int number_of_cases, int number_current_player);
 	void SetNextPlayer(Monopoly& monopoly, std::vector<Player>& players, int number_current_player);
 	std::string getNameCurrentCase(std::vector<Player> &players, std::vector<Cases> &cases, int number_current_player);
 };

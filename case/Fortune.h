@@ -7,6 +7,5 @@ private:
 public:
 	void do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current) override;
 	void add_money_case(int money);
-	std::string getName() override;
 };
 

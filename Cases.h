@@ -30,21 +30,21 @@ public:
 #ifndef CASES_H
 #define CASES_H
 
-class Cases
-{
-	private : 
-		struct Case{
+struct Case{
 			std::string name;
 			std::string color;
 			int price;
 			bool stand;
 		};
+		
+class Cases
+{
+	private : 
+		std::vector<Case> cases;
 
 	public :
-		Cases();
-		std::vector<Case> cases;
 		void defCases();
-		std::string getName();
+		std::string getName(std::vector<Case>& cases, std::vector<Player>& players, Monopoly& monopoly);
 		virtual void do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current);
 };
 
