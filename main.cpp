@@ -11,14 +11,15 @@ int main(void) {
 	//Initialisation 
 	std::vector <Player> players;
 	Monopoly monopoly(players);
-	std::vector<std::unique_ptr<Cases>> cases;
+	Cases plateau;
+	std::vector<Cases> cases;
 	Board board(cases);
 	Interraction interraction;
 
 	//Deroulement du jeu
 	monopoly.start(players, monopoly);
 	std::cout << "Debut du jeu" << std::endl << std::endl;
-	Cases::defCases();		
+	plateau.defCases();		
 	std::cout << "Appuyez sur ESPACE pour continuer..." << std::endl;									//car methode static donc appel different
 
 	while (monopoly.check_end(players, monopoly.getNumberCurrentPlayer()) != 0) {

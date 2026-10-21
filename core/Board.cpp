@@ -5,7 +5,7 @@
 #include "../Interraction.h"
 
 
-Board::Board(std::vector<std::unique_ptr<Cases>>& cases)	//I don't know
+Board::Board(std::vector<Cases>& cases)	//I don't know
 	:number_current_player(0), cases(cases)
 {
 }
@@ -48,11 +48,11 @@ void Board::SetNextPlayer(Monopoly& monopoly, std::vector<Player>& players,  int
 	}
 }
 
-std::string Board::getNameCurrentCase(std::vector<Player>& players, std::vector<std::unique_ptr<Cases>>& cases, int number_current_player)
+std::string Board::getNameCurrentCase(std::vector<Player>& players, std::vector<Cases>& cases, int number_current_player)
 {
 	for (int i = 0; i < 32; i++) {
 		if (i == players[number_current_player].getPosition()) {
-			current_case = cases[i]->getName();
+			current_case = cases[i].getName();
 		}
 	}
 	return current_case;

@@ -24,6 +24,8 @@ public:
 
 #include <iostream>
 #include <vector>
+#include "core/Monopoly.h"
+#include "core/Player.h"
 
 #ifndef CASES_H
 #define CASES_H
@@ -39,9 +41,11 @@ class Cases
 		};
 
 	public :
+		Cases();
 		std::vector<Case> cases;
 		void defCases();
-
+		std::string getName();
+		virtual void do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current);
 };
 
 #endif

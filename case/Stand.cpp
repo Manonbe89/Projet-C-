@@ -8,7 +8,7 @@ Stand::Stand(const std::string& name, const std::string& color, int price, int h
 
 void Stand::do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current)
 {
-	if (with_2Stands == true) {
+	/*if (with_2Stands == true) {
 		std::cout << "Vous avez atterri sur une case contenant deja 2 stands" << std::endl;
 		std::cout << "Vous payez 2 euros" << std::endl;
 		players[current].addMoney(-2);		//Appelle le jouer actuel dans le tableau de joueurs 
@@ -21,7 +21,8 @@ void Stand::do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t cu
 	else
 		std::cout << "Vous avez atterri sur une case sans stand, vous achetez un stand" << std::endl;
 		std::cout << "Vous payez " << house_price << " euros" << std::endl;
-		players[current].addMoney(-house_price);
+		players[current].addMoney(-house_price);*/
+
 }
 
 std::string Stand::getName()
