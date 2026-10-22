@@ -3,10 +3,12 @@
 #include "Player.h"
 #include "../Interraction.h"
 
+Board::Board()
+{
+}
 
-void Board::play_turn(Monopoly &monopoly, std::vector <Player>& players, std::vector<Case>& cases, Cases plateau)
+void Board::play_turn(Monopoly &monopoly, std::vector<Player> &players, Interraction &interraction, std::vector<struct_case> &cases, Cases &plateau)
 {;
-	Interraction interraction;
 	std::string current_player = monopoly.getNameCurrentPlayer();
 	int number_current_player = monopoly.getNumberCurrentPlayer(); 
 	std::cout << "Tour du joueur " << current_player << std::endl;
@@ -14,7 +16,7 @@ void Board::play_turn(Monopoly &monopoly, std::vector <Player>& players, std::ve
 	
 	monopoly.displayInfos(players, number_current_player);
 	interraction.waitForSpace();
-	this->move_player(players, monopoly, de, number_current_player);							//this permet d'�viter de cr�er une instance de board (beaucoup plus simple)
+	this->move_player(players, monopoly, de, number_current_player);							//this permet d'eviter de creer une instance de board (beaucoup plus simple)
 	std::cout << "Vous avez atterri sur la case " << plateau.getName(cases, players, monopoly) << std::endl;
 	plateau.do_case(players, monopoly, number_current_player);
 	std::cout << "Fin de votre tour" << std::endl << std::endl;

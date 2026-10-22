@@ -9,16 +9,17 @@ int main(void) {
 
 	//Initialisation
 	std::vector <Player> players;
-	Monopoly monopoly(players);
+	Monopoly monopoly;
 	Cases plateau;
-	std::vector<Case> cases;
-	Board board;
+	std::vector<struct_case> cases;
 	Interraction interraction;
+	Board board;
 
 	//Deroulement du jeu
-	monopoly.start(players, monopoly);
+	monopoly.start(players);
 	std::cout << "Debut du jeu" << std::endl << std::endl;
-	plateau.defCases();		
+	plateau.defCases();	
+	cases = plateau.getCases();	
 	std::cout << "Appuyez sur ESPACE pour continuer..." << std::endl;									
 
 	while (monopoly.check_end(players, monopoly.getNumberCurrentPlayer()) != 0) {
@@ -27,7 +28,8 @@ int main(void) {
 			break;
 		}
 		else {
-			board.play_turn(monopoly, players, cases, plateau);
+			std::cout << cases.size() << std::endl;
+			board.play_turn(monopoly, players, interraction, cases, plateau);
 		}
 	}
 	std::cout << "Fin du jeu" << std::endl;

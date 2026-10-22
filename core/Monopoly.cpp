@@ -2,8 +2,7 @@
 #include "Board.h"
 #include "../Interraction.h"
 
-Monopoly::Monopoly(std::vector<Player> players)
-	:FirstPlayerToPlay(FirstPlayerToPlay)
+Monopoly::Monopoly()
 {
 }
 
@@ -21,7 +20,7 @@ bool Monopoly::check_end(std::vector<Player>& players, int current)
 }
 
 
-void Monopoly::start(std::vector<Player>& players, Monopoly &monopoly)
+void Monopoly::start(std::vector<Player> &players)
 {
 	//Initialisation des valeurs
 	int nb_players;
@@ -58,15 +57,15 @@ void Monopoly::start(std::vector<Player>& players, Monopoly &monopoly)
 	interraction.waitForSpace();
 
 	for (int i = 0; i < players.size(); i++) {
-		players[i].setDe(monopoly.dice_roll(players, i));
+		players[i].setDe(this->dice_roll(players, i));
 		if (players[i].getDe() > de) {
 			winner_de = players[i].getName();
 			de = players[i].getDe();
 			numberFirstPlayer = i;
 		}
 	}
-	monopoly.setNumberCurrentPlayer(numberFirstPlayer);
-	monopoly.setNameCurrentPlayer(winner_de);
+	this->setNumberCurrentPlayer(numberFirstPlayer);
+	this->setNameCurrentPlayer(winner_de);
 	std::cout << "Le joueur " << winner_de << " commence" << std::endl;
 }
 

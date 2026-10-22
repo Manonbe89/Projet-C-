@@ -1,27 +1,3 @@
-/*#pragma once
-#include <iostream>
-#include <memory>
-#include <vector>
-#include "core/Monopoly.h"
-#include "core/Player.h"
-
-#ifndef CASES_H
-#define CASES_H
-
-class Cases
-{
-private :           
-	int current = 0;
-
-public:
-	virtual void do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current) = 0;
-	static void defCases(std::vector<std::unique_ptr<Cases>>& cases);		//comme classe virtuelle doit �tre static pour �tre utilisable
-	virtual std::string getName() = 0;
-	virtual ~Cases() = default; // Destruction via pointeur
-};
-
-#endif*/
-
 #include <iostream>
 #include <vector>
 #include "core/Monopoly.h"
@@ -30,7 +6,7 @@ public:
 #ifndef CASES_H
 #define CASES_H
 
-struct Case{
+struct struct_case{
 			std::string name;
 			std::string color;
 			int price;
@@ -40,12 +16,15 @@ struct Case{
 class Cases
 {
 	private : 
-		std::vector<Case> cases;
+		std::vector<struct_case> cases;
 
 	public :
+		Cases();
 		void defCases();
-		std::string getName(std::vector<Case>& cases, std::vector<Player>& players, Monopoly& monopoly);
+		std::vector<struct_case>& getCases();
+		std::string getName(std::vector<struct_case>& cases, std::vector<Player>& players, Monopoly& monopoly);
 		virtual void do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current);
+		 virtual ~Cases() = default;		// Destruction via pointeur
 };
 
 #endif
