@@ -1,7 +1,12 @@
 #include "Cases.h"
 
-void Cases::defCases(){
-	cases = {
+Cases::Cases()
+{
+}
+
+void Cases::defCases()
+{
+    cases = {
 			{"Depart", "", 0, 0},
 			{"Chance", "", 0, 0},
 			{"Jeu de ballons", "Bleu foncé", 1, 0},
@@ -35,12 +40,17 @@ void Cases::defCases(){
 			{"Grand huit", "Bleu", 5, 0},
 			{"Montagnes russes", "Bleu", 5, 0},
 		};
+}
+std::vector<struct_case> &Cases::getCases() {
+	return cases;
 };
 
-std::string Cases::getName(std::vector<Case>& cases, std::vector<Player>& players, Monopoly& monopoly)
+std::string Cases::getName(std::vector<struct_case>& cases, std::vector<Player>& players, Monopoly& monopoly)
 {
 	int nb_case = players[ monopoly.getNumberCurrentPlayer()].getPosition();
-    return cases[nb_case].name;
+	std::string answer = cases[nb_case].name;
+    return answer;
 }
-void Cases::do_case(std::vector<Player> &players, Monopoly &monopoly, uint8_t current) {
+void Cases::do_case(std::vector<Player>& players, Monopoly &monopoly, uint8_t current) 
+{
 };
