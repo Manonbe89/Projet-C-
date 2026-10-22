@@ -1,4 +1,9 @@
 #include "Cases.h"
+#include "Bus.h"
+#include "Cafe.h"
+#include "Chance.h"
+#include "Depart.h"
+#include "Feu_d_artifice_dauphins"
 
 Cases::Cases()
 {
@@ -41,6 +46,7 @@ void Cases::defCases()
 			{"Montagnes russes", "Bleu", 5, 0},
 		};
 }
+
 std::vector<struct_case> &Cases::getCases() {
 	return cases;
 };
@@ -53,4 +59,30 @@ std::string Cases::getName(std::vector<struct_case>& cases, std::vector<Player>&
 }
 void Cases::do_case(std::vector<Player>& players, Monopoly &monopoly, uint8_t current) 
 {
+	std::string name_case = Cases::getName(cases, players, monopoly);
+	if (name_case == "Bus"){
+		Bus bus;
+		bus.do_case(players, monopoly, current);
+	}
+	else if (name_case == "Cafe"){
+		Cafe cafe;
+		cafe.do_case(players, monopoly, current);
+	}
+	else if (name_case == "Chance"){
+		Chance chance;
+		chance.do_case(players, monopoly, current);
+	}
+	else if (name_case == "Depart"){
+		Depart depart;
+		depart.do_case(players, monopoly, current);
+	}
+	else if (name_case == "Feu_d_artifice_dauphins"){
+		Feu_d_artifice_dauphins feu_d_artifice_dauphins;
+		feu_d_artifice_dauphins.do_case(players, monopoly, current);
+	}
+	else if (name_case == "Fortune"){
+		Fortune fortune;
+		fortune.do_case(players, monopoly, current);
+	}
+
 };

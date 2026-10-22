@@ -24,7 +24,7 @@ class Cases
 		std::vector<struct_case>& getCases();
 		std::string getName(std::vector<struct_case>& cases, std::vector<Player>& players, Monopoly& monopoly);
 		virtual void do_case(std::vector<Player>& players, Monopoly& monopoly, uint8_t current);
-		 virtual ~Cases() = default;		// Destruction via pointeur
+		virtual ~Cases() = default;		// Destruction via pointeur
 };
 
 #endif

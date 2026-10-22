@@ -28,7 +28,6 @@ int main(void) {
 			break;
 		}
 		else {
-			std::cout << cases.size() << std::endl;
 			board.play_turn(monopoly, players, interraction, cases, plateau);
 		}
 	}
