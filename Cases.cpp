@@ -52,7 +52,7 @@ void Cases::defCases()
 
 std::vector<struct_case> &Cases::getCases() {
 	return cases;
-};
+}
 
 std::string Cases::getName(std::vector<Player>& players, Monopoly& monopoly)
 {
@@ -60,12 +60,17 @@ std::string Cases::getName(std::vector<Player>& players, Monopoly& monopoly)
     return cases[nb_case].name;
 }
 
+void Cases::setStateCase(std::vector<Player> &players, Monopoly &monopoly)
+{
+	cases[players[monopoly.getNumberCurrentPlayer()].getPosition()].stand ++;
+}
 
 void Cases::do_case(std::vector<Player> &players, Monopoly &monopoly, uint8_t current)
 {
 	std::string name_case = cases[players[monopoly.getNumberCurrentPlayer()].getPosition()].name;
 	std::string color_case = cases[players[monopoly.getNumberCurrentPlayer()].getPosition()].color;
 	int price = cases[players[monopoly.getNumberCurrentPlayer()].getPosition()].price;
+	bool state = cases[players[monopoly.getNumberCurrentPlayer()].getPosition()].stand;
 	if (name_case == "Bus"){
 		Bus bus;
 		bus.do_case(players, monopoly, current);
@@ -90,14 +95,12 @@ void Cases::do_case(std::vector<Player> &players, Monopoly &monopoly, uint8_t cu
 		Fortune fortune;
 		fortune.do_case(players, monopoly, current);
 	}
-	else if (name_case == "Stand"){
-		Stand stand(name_case, color_case, price);
+	else if (color_case != ""){
+		Stand stand(name_case, color_case, price, state);
 		stand.do_case(players, monopoly, current);
 	}
 	else if (name_case == "Train"){
 		Train train;
 		train.do_case(players, monopoly, current);
 	}
-
-
 };

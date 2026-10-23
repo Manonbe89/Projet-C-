@@ -20,7 +20,7 @@ int main(void) {
 	std::cout << "Debut du jeu" << std::endl << std::endl;
 	plateau.defCases();	
 	cases = plateau.getCases();	
-	std::cout << "Appuyez sur ESPACE pour continuer..." << std::endl;									
+	interraction.waitForSpace();								
 
 	while (monopoly.check_end(players, monopoly.getNumberCurrentPlayer()) != 0) {
 		if (interraction.waitForEscape()){
@@ -29,7 +29,6 @@ int main(void) {
 		}
 		else {
 			std::cout << "Tour du joueur " << monopoly.getNameCurrentPlayer() << std::endl;
-			interraction.waitForSpace();
 			board.play_turn(monopoly, players, interraction, cases, plateau);
 		}
 	}

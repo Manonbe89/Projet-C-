@@ -71,6 +71,7 @@ void Monopoly::start(std::vector<Player> &players)
 
 int Monopoly::dice_roll(const std::vector<Player> &players, int current)
 {
+	srand(static_cast<unsigned int>(time(nullptr)));
 	std::cout << "Vous lancez les des" << std::endl;
 	int valeur = rand() % 6 + 1;
 	std::cout << "Le joueur " << players[current].getName() << " a obtenu un " << valeur << std::endl << std::endl;
