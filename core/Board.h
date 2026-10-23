@@ -21,7 +21,7 @@ private:
 public:
 	Board();
 	void play_turn(Monopoly &monopoly, std::vector <Player>& players, Interraction& interraction, std::vector<struct_case>& cases, Cases &plateau);
-	void move_player(std::vector<Player>& players, Monopoly& monopoly, int number_of_cases, int number_current_player);
+	void move_player(std::vector<Player>& players, Monopoly& monopoly, int number_of_cases, int number_current_player, Cases &plateau);
 	void SetNextPlayer(Monopoly& monopoly, std::vector<Player>& players, int number_current_player);
 	std::string getNameCurrentCase(std::vector<Player> &players, std::vector<Cases> &cases, int number_current_player);
 };

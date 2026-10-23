@@ -1,6 +1,5 @@
 #pragma once
 #include "../Cases.h"
-#include "Fortune.h"
 
 #ifndef BUS_H
 #define BUS_H

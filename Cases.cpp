@@ -1,9 +1,12 @@
 #include "Cases.h"
-#include "Bus.h"
-#include "Cafe.h"
-#include "Chance.h"
-#include "Depart.h"
-#include "Feu_d_artifice_dauphins"
+#include "case/Bus.h"
+#include "case/Cafe.h"
+#include "case/Chance.h"
+#include "case/Depart.h"
+#include "case/Feu_d_artifice_dauphins.h"
+#include "case/Fortune.h"
+#include "case/Stand.h"
+#include "case/Train.h"
 
 Cases::Cases()
 {
@@ -51,15 +54,18 @@ std::vector<struct_case> &Cases::getCases() {
 	return cases;
 };
 
-std::string Cases::getName(std::vector<struct_case>& cases, std::vector<Player>& players, Monopoly& monopoly)
+std::string Cases::getName(std::vector<Player>& players, Monopoly& monopoly)
 {
 	int nb_case = players[ monopoly.getNumberCurrentPlayer()].getPosition();
-	std::string answer = cases[nb_case].name;
-    return answer;
+    return cases[nb_case].name;
 }
-void Cases::do_case(std::vector<Player>& players, Monopoly &monopoly, uint8_t current) 
+
+
+void Cases::do_case(std::vector<Player> &players, Monopoly &monopoly, uint8_t current)
 {
-	std::string name_case = Cases::getName(cases, players, monopoly);
+	std::string name_case = cases[players[monopoly.getNumberCurrentPlayer()].getPosition()].name;
+	std::string color_case = cases[players[monopoly.getNumberCurrentPlayer()].getPosition()].color;
+	int price = cases[players[monopoly.getNumberCurrentPlayer()].getPosition()].price;
 	if (name_case == "Bus"){
 		Bus bus;
 		bus.do_case(players, monopoly, current);
@@ -84,5 +90,14 @@ void Cases::do_case(std::vector<Player>& players, Monopoly &monopoly, uint8_t cu
 		Fortune fortune;
 		fortune.do_case(players, monopoly, current);
 	}
+	else if (name_case == "Stand"){
+		Stand stand(name_case, color_case, price);
+		stand.do_case(players, monopoly, current);
+	}
+	else if (name_case == "Train"){
+		Train train;
+		train.do_case(players, monopoly, current);
+	}
+
 
 };

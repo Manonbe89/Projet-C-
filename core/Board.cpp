@@ -11,21 +11,19 @@ void Board::play_turn(Monopoly &monopoly, std::vector<Player> &players, Interrac
 {;
 	std::string current_player = monopoly.getNameCurrentPlayer();
 	int number_current_player = monopoly.getNumberCurrentPlayer(); 
-	std::cout << "Tour du joueur " << current_player << std::endl;
 	int de = monopoly.dice_roll(players, number_current_player);
-	
+	this->move_player(players, monopoly, de, number_current_player, plateau);				//this permet d'eviter de creer une instance de board (beaucoup plus simple)
+	plateau.do_case(players, monopoly, number_current_player);
 	monopoly.displayInfos(players, number_current_player);
 	interraction.waitForSpace();
-	this->move_player(players, monopoly, de, number_current_player);							//this permet d'eviter de creer une instance de board (beaucoup plus simple)
-	std::cout << "Vous avez atterri sur la case " << plateau.getName(cases, players, monopoly) << std::endl;
-	plateau.do_case(players, monopoly, number_current_player);
 	std::cout << "Fin de votre tour" << std::endl << std::endl;
 	interraction.waitForSpace();
 	this->SetNextPlayer(monopoly, players, number_current_player);
 }
 
-void Board::move_player(std::vector<Player>& players, Monopoly& monopoly, int number_of_cases, int number_current_player)
+void Board::move_player(std::vector<Player>& players, Monopoly& monopoly, int number_of_cases, int number_current_player, Cases &plateau)
 {
+	std::cout << "Vous avez atterri sur la case " << plateau.getName(players, monopoly) << std::endl;
 	std::cout << "Vous avancez de " << number_of_cases << " cases" << std::endl;
 	players[number_current_player].addPosition(number_of_cases, players, monopoly, number_current_player);
 }

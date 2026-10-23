@@ -28,6 +28,8 @@ int main(void) {
 			break;
 		}
 		else {
+			std::cout << "Tour du joueur " << monopoly.getNameCurrentPlayer() << std::endl;
+			interraction.waitForSpace();
 			board.play_turn(monopoly, players, interraction, cases, plateau);
 		}
 	}

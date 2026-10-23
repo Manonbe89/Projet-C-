@@ -1,8 +1,8 @@
 #include "Stand.h"
 
 
-Stand::Stand(const std::string& name, const std::string& color, int price, int house_price)
-	:name(name), color(color), price(price), house_price(house_price)
+Stand::Stand(const std::string& name, const std::string& color, int price)
+	:name(name), color(color), price(price)
 {
 }
 
